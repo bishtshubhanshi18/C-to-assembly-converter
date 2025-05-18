@@ -1,0 +1,43 @@
+
+; Function: main
+main:
+	MOV.W   #8, R1
+
+	CALL    #main
+
+	MOV.W   #10 , R10
+
+	MOV.W   #5 , R11
+
+	; c = a + b
+	MOV.W   R10, (R12)
+	ADD.W   R11, (R12)
+	MOV.W   (R12), R12
+
+	; d = a - b
+	MOV.W   R10, (R12)
+	SUB.W   R11, (R12)
+	MOV.W   (R12), R13
+
+	; e = a * b
+	MOV.W   R10, (R12)
+	MUL.W   R11, (R12)
+	MOV.W   (R12), R14
+
+	; f = a & b
+	MOV.W   R10, (R12)
+	AND.W   R11, (R12)
+	MOV.W   (R12), R15
+
+	; g = a | b
+	MOV.W   R10, (R12)
+	OR.W    R11, (R12)
+	MOV.W   (R12), RX
+
+	; h = a ^ b
+	MOV.W   R10, (R12)
+	XOR.W   R11, (R12)
+	MOV.W   (R12), RX
+
+	ADD.W    #8,  (R1)
+	RET
